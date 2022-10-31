@@ -1,0 +1,30 @@
+<html><body>
+    <table cellspacing="2" border="1" cellpadding="5" width="600">
+        <tr>
+          <th>album</th>
+          <th>name 
+            <form action="{% url 'albums' %}" method="get">
+              <button class="btn btn-primary" type="submit" name="sorting" value="name">sort</button>
+            </form>
+          </th>
+          <th>artist@name 
+            <form action="{% url 'albums' %}" method="get">
+                <button class="btn btn-primary" type="submit" name="sorting" value="artist">sort</button>
+            </form>
+          </th>
+          <th>tracks</th>
+        </tr>
+        {% for item in item.data %}
+        <tr>
+          <th> {{ item.album }} </th>
+          <th> {{ item.name }} </th>
+          <th> {{ item.artist }} </th>
+          <th> 
+            {% for track in item.tracks %} 
+              {{ track }} <br>
+            {% endfor %}
+          </th>
+        </tr> 
+        {% endfor %}
+    </table>
+</body></html>
